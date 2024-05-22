@@ -1,24 +1,37 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
-    <!-- Favicon hinzufügen (optional) -->
-    <link rel="icon" href="/path/to/favicon.ico">
-    <style>
-        /* Hintergrundbild-Styling */
-        body {
-            background-image: url('https://wallpapers.com/images/hd/pearl-white-nissan-skyline-gtr-r34-3nzpby3s7ao94me1.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            /* Hintergrund leicht transparent machen */
-            background-color: rgba(255, 255, 255, 0.5); /* Hier kannst du die Transparenz anpassen (0.0 bis 1.0) */
-        }
-    </style>
-</head>
-<body>
-    <!-- Rest deiner Webseite -->
-</body>
-</html>
+<div class="progress-bar-container">
+  <div class="progress-bar" style="width: 50%;"></div>
+  <div class="progress-label">50%</div>
+</div>
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 10px;
+  animation: progress 2s ease-in-out;
+}
+
+.progress-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
