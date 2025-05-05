@@ -1,64 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>CSS Website Layout</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-}
-
-/* Style the header */
-.header {
-  background-color: #f000000;
-  padding: 20px;
-  text-align: center;
-}
-</style>
-</head>
-<body>
-
-<div class="header">
-  <h1>Welcome</h1>
-</div>
-
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
-    <!-- Favicon hinzufügen (optional) -->
-    <link rel="icon" href="/path/to/favicon.ico">
-    <style>
-        /* Startleiste-Styling */
-        .startleiste {
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-        }
-        .startleiste a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modernisierte Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+  </script>
 </head>
-<body>
-    <!-- Startleiste -->
-    <div class="startleiste">
-        <a href=https://www.youtube.com/watch?v=SbYXkOAoZpI&t>Nicht klicken</a>
-        <a href=https://wallpapers.com/images/hd/pearl-white-nissan-skyline-gtr-r34-3nzpby3s7ao94me1.jpg>Ein schönes Auto</a>
-        <a href=https://www.youtube.com>YouTube</a> <!-- Hier den YouTube-Link einfügen -->
-        <!-- Weitere Links hier einfügen -->
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-500">
+
+  <!-- Navigation -->
+  <nav class="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-800 shadow-md">
+    <h1 class="text-xl font-bold">Meine Website</h1>
+    <div class="space-x-4">
+      <a href="#" class="hover:underline">Start</a>
+      <a href="#" class="hover:underline">Galerie</a>
+      <a href="#" class="hover:underline">Kontakt</a>
+      <button onclick="toggleDarkMode()" class="px-3 py-1 bg-blue-500 text-white rounded">Dark Mode</button>
     </div>
-    <!-- Rest deiner Webseite -->
+  </nav>
+
+  <!-- Hero -->
+  <header class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://wallpapers.com/images/hd/pearl-white-nissan-skyline-gtr-r34-3nzpby3s7ao94me1.jpg');">
+    <div class="bg-black bg-opacity-50 p-10 rounded-xl text-center">
+      <h2 class="text-4xl font-bold mb-4 text-white">Willkommen auf meiner modernen Website</h2>
+      <p class="text-lg text-gray-200 mb-6">Cooles Design. Interaktive Features. Neue Ära.</p>
+      <a href="https://www.youtube.com/watch?v=SbYXkOAoZpI&t" target="_blank" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Nicht klicken 😈</a>
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 bg-gray-200 dark:bg-gray-800">
+    © 2025 – Alle Rechte vorbehalten
+  </footer>
+
 </body>
 </html>
