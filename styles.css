@@ -1,0 +1,11 @@
+body {
+  font-family: system-ui, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.code-tab {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
