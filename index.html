@@ -1,102 +1,59 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChatGPT beim Programmieren</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/main.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    function switchTab(language) {
-      document.querySelectorAll('.code-tab').forEach(el => el.classList.add('hidden'));
-      document.getElementById(language).classList.remove('hidden');
-    }
-
-    function runJSCode() {
-      const output = document.getElementById("js-output");
-      const code = document.getElementById("js-code").value;
-      try {
-        output.innerText = eval(code);
-      } catch (e) {
-        output.innerText = e;
-      }
-    }
-
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-    }
-  </script>
 </head>
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition duration-300">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-500 to-purple-600 p-10 text-center text-white">
-    <h1 class="text-5xl font-bold">ChatGPT beim Programmieren</h1>
-    <p class="mt-4 text-xl">Wie KI dir beim Coden helfen kann</p>
-    <button onclick="toggleDarkMode()" class="mt-6 px-4 py-2 bg-black bg-opacity-30 rounded hover:bg-opacity-50">🌗 Dark Mode wechseln</button>
+  <!-- Navigation -->
+  <nav class="flex justify-between p-6 bg-indigo-600 text-white shadow">
+    <h1 class="text-2xl font-bold">ChatGPT.dev</h1>
+    <button onclick="toggleDarkMode()" class="bg-white text-indigo-600 px-4 py-2 rounded">🌗 Dark Mode</button>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center p-16 bg-gradient-to-br from-purple-500 to-indigo-700 text-white">
+    <h2 class="text-5xl font-bold mb-4">Programmieren mit ChatGPT</h2>
+    <p class="text-xl">Lerne, wie KI dich beim Coden unterstützt.</p>
   </header>
 
-  <!-- Sektion: Funktionen -->
-  <section class="p-10 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-6">Was ChatGPT für Entwickler kann:</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-      <li>✅ Code-Vervollständigung & Vorschläge</li>
-      <li>✅ Fehlererkennung und -behebung</li>
-      <li>✅ Erklärt komplexe Logik</li>
-      <li>✅ Unterstützung in <strong>JavaScript, Python, HTML, CSS</strong> und mehr</li>
-    </ul>
-  </section>
-
-  <!-- Sektion: Code Tabs -->
-  <section class="bg-gray-100 dark:bg-gray-800 p-10">
-    <h2 class="text-3xl font-semibold mb-6 text-center">Beispielcode in verschiedenen Sprachen</h2>
-    <div class="flex justify-center space-x-4 mb-6">
-      <button class="px-4 py-2 bg-indigo-600 text-white rounded" onclick="switchTab('html')">HTML</button>
-      <button class="px-4 py-2 bg-indigo-600 text-white rounded" onclick="switchTab('css')">CSS</button>
-      <button class="px-4 py-2 bg-indigo-600 text-white rounded" onclick="switchTab('js')">JavaScript</button>
-      <button class="px-4 py-2 bg-indigo-600 text-white rounded" onclick="switchTab('python')">Python</button>
+  <!-- Code Tabs -->
+  <main class="p-10 max-w-5xl mx-auto">
+    <div class="tabs mb-6 text-center space-x-4">
+      <button onclick="switchTab('html')">HTML</button>
+      <button onclick="switchTab('css')">CSS</button>
+      <button onclick="switchTab('js')">JavaScript</button>
+      <button onclick="switchTab('python')">Python</button>
     </div>
 
     <div id="html" class="code-tab">
-      <pre class="bg-white dark:bg-gray-700 p-4 rounded shadow overflow-auto"><code>&lt;h1&gt;Hallo Welt&lt;/h1&gt;
-&lt;p&gt;Dies ist ein einfacher HTML-Abschnitt.&lt;/p&gt;</code></pre>
+      <pre><code>&lt;h1&gt;Hallo Welt&lt;/h1&gt;</code></pre>
     </div>
 
     <div id="css" class="code-tab hidden">
-      <pre class="bg-white dark:bg-gray-700 p-4 rounded shadow overflow-auto"><code>body {
-  background-color: #f0f0f0;
-  font-family: sans-serif;
-}</code></pre>
+      <pre><code>body { background-color: #eee; }</code></pre>
     </div>
 
     <div id="js" class="code-tab hidden">
-      <textarea id="js-code" class="w-full h-32 p-2 bg-gray-100 dark:bg-gray-900 rounded text-sm"></textarea>
-      <button onclick="runJSCode()" class="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">▶ Ausführen</button>
-      <p class="mt-4 font-mono bg-gray-200 dark:bg-gray-700 p-2 rounded">Ausgabe: <span id="js-output" class="text-blue-600 dark:text-blue-300"></span></p>
+      <textarea id="js-code" class="w-full h-24 p-2"></textarea>
+      <button onclick="runJSCode()" class="mt-2 bg-green-600 text-white px-4 py-2 rounded">▶ Ausführen</button>
+      <p class="mt-2">Ausgabe: <span id="js-output" class="text-blue-500"></span></p>
     </div>
 
     <div id="python" class="code-tab hidden">
-      <pre class="bg-white dark:bg-gray-700 p-4 rounded shadow overflow-auto"><code>def begruessung(name):
-    return f"Hallo, {name}!"
-
-print(begruessung("Welt"))</code></pre>
-      <p class="mt-2 text-sm italic text-gray-500">Hinweis: Python-Code kann hier nicht live ausgeführt werden.</p>
+      <pre><code>print("Hallo von Python!")</code></pre>
+      <p class="text-sm italic">Backend benötigt für echte Python-Ausführung.</p>
     </div>
-  </section>
-
-  <!-- Sektion: Kontakt -->
-  <section class="p-10 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4">Kontakt</h2>
-    <form class="space-y-4">
-      <input type="text" placeholder="Dein Name" class="w-full p-3 rounded bg-gray-100 dark:bg-gray-800" />
-      <input type="email" placeholder="Deine E-Mail" class="w-full p-3 rounded bg-gray-100 dark:bg-gray-800" />
-      <textarea placeholder="Deine Nachricht" class="w-full p-3 rounded bg-gray-100 dark:bg-gray-800 h-32"></textarea>
-      <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Absenden</button>
-    </form>
-  </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-200 dark:bg-gray-800 text-center p-6 mt-10">
-    © 2025 – Entwickelt mit ❤️ und ChatGPT
+  <footer class="text-center bg-gray-200 dark:bg-gray-800 p-6 mt-10">
+    © 2025 – ChatGPT Dev
   </footer>
 </body>
 </html>
